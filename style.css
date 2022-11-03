@@ -1,0 +1,39 @@
+body {
+    background-image: url("res/background.jpg");
+}
+
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+    color: white;
+    
+}
+
+input[type=button] {
+    font-family: Arial, Helvetica, sans-serif;
+    border: none;
+    padding: 0;
+    /* background-color: #2a528f; */
+    background: none;
+    color: #f7eeee;
+    font-size: 20pt;
+}
+
+/* #addTask, textarea {
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    height: 25px;
+    padding-top: 5px;
+} */
+
+#addTask, input[type=text] {
+    font-family: Arial, Helvetica, sans-serif;
+    resize: none;
+    text-align: center;
+    font-size: large;
+    height: 25px;
+    padding-top: 5px;
+
+}
+
