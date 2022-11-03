@@ -1,22 +1,40 @@
 body {
     background-image: url("res/background.jpg");
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
-    font-family: Arial, Helvetica, sans-serif;
+    
     color: white;
     
 }
 
 input[type=button] {
-    font-family: Arial, Helvetica, sans-serif;
+    
     border: none;
     padding: 0;
-    /* background-color: #2a528f; */
     background: none;
     color: #f7eeee;
     font-size: 20pt;
 }
+
+label {
+    color: #f7eeee;
+}
+
+ul {
+    list-style: none;
+    text-align: justify;
+    display: inline-block;
+}
+
+input[type=checkbox]:checked+label {
+    text-decoration-line: line-through;
+    text-decoration-color: black;
+    text-decoration-thickness: 4px;
+    color: grey;
+}
+
 
 /* #addTask, textarea {
     font-family: Arial, Helvetica, sans-serif;
@@ -28,7 +46,7 @@ input[type=button] {
 } */
 
 #addTask, input[type=text] {
-    font-family: Arial, Helvetica, sans-serif;
+    /* font-family: Arial, Helvetica, sans-serif; */
     resize: none;
     text-align: center;
     font-size: large;
@@ -37,3 +55,6 @@ input[type=button] {
 
 }
 
+#tasks {
+    text-align: center;
+}

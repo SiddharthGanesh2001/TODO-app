@@ -18,22 +18,24 @@ const clickHandler=function(event) {
     task.status="pending";
     taskBox.push(task);
     console.log(taskBox);
-    getTaskBoxHTMLContent(taskBox);
+    let taskHTML=getTaskHTMLContent(task);
+    document.querySelector("#addTaskBox").value="";
+    renderTaskBox(taskHTML);
     
 }
 addButton.addEventListener("click", clickHandler);
 
 
-function getTaskBoxHTMLContent(taskBox) {
-    let taskBoxHTML=taskBox.map((task) => {
-        return `<li>
-                    <input type="checkbox" name="${task.title}" value="${task.title}/>
+function getTaskHTMLContent(task) {
+    let taskHTML=`<li>
+                    <input type="checkbox" name="${task.title}" value="${task.title}"/>
+                    <label for="${task.title}">${task.title}</label>
                 </li>`
-    }).join('');
-    return taskBoxHTML;
+    console.log(taskHTML);
+    return taskHTML;
 }
 
-function renderTaskBox(taskBoxHTML) {
-    ul.insertAdjacentElement("beforeend",taskBoxHTML);
+function renderTaskBox(taskHTML) {
+    ul.insertAdjacentHTML("beforeend",taskHTML);
 
 }
