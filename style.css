@@ -5,7 +5,6 @@ body {
 
 h1 {
     color: white;
-    
 }
 
 input[type=button] {
@@ -17,74 +16,83 @@ input[type=button] {
 }
 
 label {
-    color: #f7eeee;
+    color: black;
     font-size: 16pt;
 }
 
 ul {
     list-style: none;
-    text-align: justify;
+    text-align: left;
     display: inline-block;
-
 }
 
 input[type=checkbox] {
     visibility: hidden;
-
 }
 
 
 input[type=checkbox]:checked+label {
     text-decoration-line: line-through;
-    text-decoration-color: black;
-    text-decoration-thickness: 4px;
+    text-decoration-color: grey;
+    text-decoration-thickness: 2px;
     color: grey;
-
 }
 
+#addTask {
+    text-align: center;
+    margin: auto;
+}
 
 #addTask, input[type=text] {
     text-align: center;
     font-size: large;
-    height: 25px;
+    height: 30px;
     padding-top: 5px;
+    border-radius: 10px;
 
 }
 
-#tasks {
+#taskBox {
     text-align: center;
+    border: 1px;
+    border-style: solid;
+    border-color: white;
+    background-color: white;
+    border-radius: 10px;
+    width: 25%;
+    margin: auto;
+
+ }
+
+#taskBox label {
+    position: absolute;
+    left:39%;
+    overflow-wrap: break-word;
 }
 
-#tasks label {
-    position: relative;
-}
-
-#tasks label::before{
+#taskBox label::before{
     background: white;
     width: 20px;
     height: 20px;
     content: "";
-    shape-outside: circle();
-    clip-path: circle();
+    border: 1px solid #6f1db3;
+    border-radius: 50%;
     display: inline-block;
-    padding-right: 10px;
     position: relative;
     z-index: 1;
 }
 
-#tasks label::after {
+#taskBox label::after {
     background-color: #6f1db3;
-    width: 20px;
-    height: 20px;
+    width: 22px;
+    height: 22px;
     shape-outside: circle();
     clip-path: circle();
     display: inline-block;
-    padding-right: 10px;
     position: absolute;
     top: 0;
     left: 0;
     z-index: 10;
-
 }
 
 input[type=checkbox]+label::after {
@@ -93,4 +101,16 @@ input[type=checkbox]+label::after {
 
 input[type=checkbox]:checked+label::after {
     content: "";
+}
+
+#removeButton {
+    position: absolute;
+    right: 39%;
+}
+
+#removeButton>button {
+    border: none;
+    background: none;
+    padding: 0;
+    font-size: larger;
 }
