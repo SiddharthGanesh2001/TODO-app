@@ -1,13 +1,22 @@
 body {
-    background-image: url("res/background.jpg");
-    background-size: 1920px 250px;
-    background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
+    margin: 0;
+    background-image: url("res/bg.jpg");
+    background-size: 1900px 360px;
+    background-repeat: no-repeat;
 }
 
+/* #bgImg {
+    background-image: url("res/background.jpg");
+    background-size: cover;
+    background-position: left;
+    z-index: -1;
+
+} */
 
 h1 {
     color: white;
+    margin: 0;
 }
 
 input[type=button] {
@@ -35,6 +44,8 @@ li {
     /* word-break: break-all; */
     overflow-wrap: break-word;
     border-bottom: 1px solid black;
+    padding-bottom: 5px;
+    padding-top: 5px;
     /* margin: 20px; */
 }
 
@@ -53,6 +64,7 @@ input[type=checkbox]:checked+label {
 #addTask {
     text-align: center;
     margin: auto;
+    padding-top: 200px;
 }
 
 #addTask, input[type=text] {
@@ -80,6 +92,7 @@ input[type=checkbox]:checked+label {
     position: relative;
     /* left: 35%; */
     text-align: left;
+    /* padding-top: 15px; */
     /* padding-left: 15px; */
     /* overflow-wrap: break-word; */
 }
@@ -90,14 +103,17 @@ input[type=checkbox]:checked+label {
     height: 20px;
     shape-outside: circle();
     clip-path: circle();
-    padding-right: 15px;
+    /* padding-right: 15px; */
+    /* padding-top: 5px; */
+    /* padding-bottom: 5px; */
+    /* padding: 5px; */
+    /* shape-margin: 5px; */
     content: "";
     border: 1px solid #6f1db3;
-    border-radius: 50%;
+    /* border-radius: 50%; */
     display: inline-block;
     position: relative;
     z-index: 5;
-
 }
 
 #taskBox label::after {
@@ -106,10 +122,9 @@ input[type=checkbox]:checked+label {
     height: 22px;
     shape-outside: circle();
     clip-path: circle();
-    padding-left: 15px;
+    /* padding-left: 15px; */
     display: inline-block;
     position: absolute;
-    top: 0;
     left: 0;
     z-index: 10;
 }
