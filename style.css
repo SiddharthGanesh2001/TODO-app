@@ -9,6 +9,10 @@ body {
 h1 {
     color: white;
     margin: 0;
+    display: block;
+    position: fixed;
+    left: 100px;
+    top: 100px;
 }
 
 input[type=button] {
@@ -37,7 +41,7 @@ ul {
 }
 
 li {
-    border-bottom: 1px solid black;
+    border-bottom: 1px solid lightgray;
     padding-bottom: 5px;
     padding-top: 5px;
 }
@@ -59,7 +63,7 @@ input[type=checkbox]:checked+label {
     margin: auto;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
 }
 
@@ -85,6 +89,7 @@ input[type=checkbox]:checked+label {
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
+    justify-content: center;
 }
 
 #taskBox label {
@@ -103,7 +108,7 @@ input[type=checkbox]:checked+label {
     border-radius: 50%;
     display: inline-block;
     position: relative;
-    left: -20px;
+    left: -10px;
     top: 5px;
     z-index: 5;
 }
@@ -116,7 +121,7 @@ input[type=checkbox]:checked+label {
     clip-path: circle();
     display: inline-block;
     position: absolute;
-    left: -20px;
+    left: -10px;
     top: 5px;
     z-index: 10;
 }
@@ -159,7 +164,7 @@ input[type=checkbox]:checked+label::after {
     padding: 5px;
     border: none;
     background: none;
-    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-family: 'Courier New', Courier, monospace;
     color: grey;
     font-weight: bold;
     font-size: 10pt;
