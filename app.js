@@ -1,27 +1,25 @@
 class TaskModel {
-    constructor(taskName) {
-        this.taskName=taskName;
-        this.taskStatus="PENDING";
-        this.taskID=Date.now();
-    }    
-    updateTaskStatus(taskID){
-            this.taskID=taskID;
-            this.taskStatus="COMPLETED";
+    constructor(name) {
+        this.name=name;
+        this.ID=Date.now();
     }
-    
 }
 class TaskCollection {
     constructor() {
         this.taskCollection=[];
     }
-    addTaskModel(taskModel) {
+    add(taskModel) {
         this.taskCollection.push(taskModel);
     }
-    removeTaskModel(ID) {
-        let index=this.taskCollection.indexOf(ID);
-        this.taskCollection.splice(index,1);
+    remove(...IDs) {
+        for (let ID of IDs) {
+            for (let i = 0; i < this.taskCollection.length; i++) {
+                if (this.taskCollection[i].ID == ID) {
+                    this.taskCollection.splice(i, 1);
+                }
+            }
+        }
     }
-
 }
 let taskCollection=new TaskCollection();
 let ul=document.createElement("ul");
@@ -29,73 +27,65 @@ document.querySelector("#taskBox").appendChild(ul);
 const addButton=document.querySelector("#add");
 const taskBox=document.querySelector("#taskBox");
 const addTask=document.querySelector("#addTaskBox");
+const clearCompleted=document.querySelector("#clearCompleted");
 
-const addHandler=function(event) {
+const addHandler=function (event) {
     let taskModel=new TaskModel(document.querySelector("#addTaskBox").value);
-    taskCollection.addTaskModel(taskModel);
-    if(taskModel.taskName){
+    taskCollection.add(taskModel);
+    if (taskModel.name) {
         console.log(taskCollection);
         console.log(taskModel);
-        let taskHTML=getTaskHTMLContent(taskModel,null);
+        let taskHTML=getTaskHTMLContent(taskModel, null);
         document.querySelector("#addTaskBox").value="";
         renderTaskBox(taskHTML);
     }
 }
 addButton.addEventListener("click", addHandler);
 
-const enterHandler=function(event) { 
-    if(event.code==='Enter'){
+const enterHandler=function (event) {
+    if (event.code==='Enter') {
         addHandler();
     }
 }
-addTask,addEventListener("keydown", enterHandler);
+addTask, addEventListener("keydown", enterHandler);
 
-const removeHandler=function(event) {
+const removeHandler=function (event) {
     let target=event.target;
-    console.log(event);
-    if(target.nodeName==="BUTTON"){
-    //     event.currentTarget.getAttribute("")
+    if (target.nodeName==="BUTTON") {
         console.log("remove button");
         console.log(target.id);
-        taskCollection.removeTaskModel(target.id);
+        taskCollection.remove(target.id);
         console.log(taskCollection);
-        let taskHTML=getTaskHTMLContent(null,taskCollection);
-        document.querySelector("ul").replaceChildren();
-        renderTaskBox(taskHTML);
+        document.querySelector("ul").removeChild(document.getElementById(target.id));
     }
 }
-taskBox.addEventListener("click",removeHandler);
+taskBox.addEventListener("click", removeHandler);
 
-function getTaskHTMLContent(taskModel,taskCollection) {
-    if(taskModel) {
-        let taskHTML=`<li>
-                        <input type="checkbox" name="${taskModel.taskName}" id="${taskModel.taskName}"/>
-                        <label for="${taskModel.taskName}">${taskModel.taskName}</label>
-                        <span class="removeButton">
-                            <button id="${taskModel.taskID}">X</button>
-                        </span><br><br>
-                    </li>`;
-        console.log(taskHTML);
-        return taskHTML;
+const clearHandler=function(event) {
+    console.log("Clear Completed!");
+    let tasks=document.querySelectorAll("li");
+    for(let task of tasks) {
+        let sumvar=task.querySelector("input[type=checkbox]");
+        if(sumvar.checked) {
+            document.querySelector("ul").removeChild(task);
+        }
     }
-    else if(taskCollection) {
-        let taskHTML=taskCollection.taskCollection.map((taskModel) => {
-            return `<li>
-                        <input type="checkbox" name="${taskModel.taskName}" id="${taskModel.taskName}"/>
-                        <label for="${taskModel.taskName}">${taskModel.taskName}</label>
-                        <span class="removeButton">
-                            <button id="${taskModel.taskID}">X</button>
-                        </span><br><br>
-                    </li>`;
-        }).join('');
-        console.log(taskHTML);
-        return taskHTML;
-    }
-    
 }
+clearCompleted.addEventListener("click", clearHandler);
 
+function getTaskHTMLContent(taskModel, taskCollection) {
+
+    let taskHTML=`<li id="${taskModel.ID}">
+                    <input type="checkbox" name="${taskModel.name}" id="${taskModel.name}"/>
+                    <label for="${taskModel.name}">${taskModel.name}</label>
+                    <span class="removeButton">
+                        <button id="${taskModel.ID}">X</button>
+                    </span><br><br>
+                </li>`;    
+    console.log(taskHTML);
+    return taskHTML;
+}
 
 function renderTaskBox(taskHTML) {
-    ul.insertAdjacentHTML("beforeend",taskHTML);
-
+    ul.insertAdjacentHTML("beforeend", taskHTML);
 }
