@@ -12,6 +12,8 @@ h1 {
     position: fixed;
     left: 100px;
     top: 100px;
+    letter-spacing: 8pt;
+    font-size: 36pt;
 }
 
 input[type=button] {
