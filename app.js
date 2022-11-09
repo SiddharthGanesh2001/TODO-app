@@ -65,8 +65,8 @@ const clearHandler=function(event) {
     console.log("Clear Completed!");
     let tasks=document.querySelectorAll("li");
     for(let task of tasks) {
-        let sumvar=task.querySelector("input[type=checkbox]");
-        if(sumvar.checked) {
+        let checkBox=task.querySelector("input[type=checkbox]");
+        if(checkBox.checked) {
             document.querySelector("ul").removeChild(task);
         }
     }
