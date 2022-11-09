@@ -160,7 +160,7 @@ input[type=checkbox]:checked+label::after {
     flex-wrap: wrap;
 }
 
-#taskBoxStatus button {
+#taskBoxStatus #clearCompleted {
     padding: 5px;
     border: none;
     background: none;
@@ -170,12 +170,12 @@ input[type=checkbox]:checked+label::after {
     font-size: 10pt;
 }
 
-#taskBoxStatus button:hover {
+#taskBoxStatus #clearCompleted:hover {
     color: black;
     font-weight: bold;
 }
 
-#taskBoxStatus button:active {
+#taskBoxStatus #clearCompleted:active {
     color: blue;
     font-weight: bold;
 }
