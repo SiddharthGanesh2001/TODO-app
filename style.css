@@ -1,14 +1,13 @@
 body {
     font-family: Arial, Helvetica, sans-serif;
-    margin: 0;
     background-image: url("res/bg.jpg");
     background-size: 1900px 360px;
     background-repeat: no-repeat;
+    background-color: whitesmoke;
 }
 
 h1 {
     color: white;
-    margin: 0;
     display: block;
     position: fixed;
     left: 100px;
@@ -44,6 +43,8 @@ li {
     border-bottom: 1px solid lightgray;
     padding-bottom: 5px;
     padding-top: 5px;
+    /* max-width: 50%; */
+    /* word-wrap: break-word; */
 }
 
 input[type=checkbox] {
@@ -59,10 +60,7 @@ input[type=checkbox]:checked+label {
 }
 
 #addTask {
-    text-align: center;
-    margin: auto;
     display: flex;
-    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
@@ -73,7 +71,8 @@ input[type=checkbox]:checked+label {
     height: 30px;
     padding-top: 5px;
     border-radius: 10px;
-    width: 302px;
+    width: 50%;
+    height: 40px;
 }
 
 #taskBox {
@@ -83,18 +82,23 @@ input[type=checkbox]:checked+label {
     border-bottom: none;
     background-color: white;
     border-radius: 10px 10px 0px 0px;
-    width: 25%;
-    margin: auto 35%;
-    box-shadow: 2px 2px whitesmoke;
+    width: 100%;
+    max-width: 25%;
+    box-shadow: 2px 2px white;
     display: flex;
     flex-direction: column;
     flex-wrap: wrap;
     justify-content: center;
+    /* overflow-wrap: break-word; */
 }
 
 #taskBox label {
     position: absolute;
     text-align: left;
+    max-width:  400px;
+    max-height: 25px;
+    /* overflow: scroll; */
+    word-wrap: break-word;
 }
 
 #taskBox label::before{
@@ -136,7 +140,7 @@ input[type=checkbox]:checked+label::after {
 
 .removeButton {
     position: absolute;
-    right: 41%;
+    right: 39%;
     padding-top: 10px;
 }
 
@@ -152,9 +156,9 @@ input[type=checkbox]:checked+label::after {
     border: 1px solid lightgray;
     border-top: none;
     background-color: white;
-    box-shadow: 2px 2px whitesmoke;
-    width: 25%;
-    margin: auto 35%;
+    box-shadow: 2px 2px white;
+    width: 100%;
+    max-width: 25%;
     border-radius: 0px 0px 10px 10px;
     justify-content: flex-end;
     flex-wrap: wrap;
@@ -178,4 +182,12 @@ input[type=checkbox]:checked+label::after {
 #taskBoxStatus #clearCompleted:active {
     color: blue;
     font-weight: bold;
+}
+#wrapper {
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding-top: 200px;
 }
